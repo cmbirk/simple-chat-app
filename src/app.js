@@ -1,8 +1,11 @@
+const debug = require('debug')('simple-chat:app');
 const express = require('express');
 const path = require('path');
 const socketio = require('socket.io');
 
 const app = express();
+
+const port = 3003;
 
 app.set('view engine', 'ejs');
 
@@ -12,9 +15,11 @@ app.get('/', (req, res) => {
   res.render(path.join(__dirname, 'views/index'));
 });
 
-server = app.listen(3003);
+server = app.listen(port, () => {
+  debug(`App listening on port ${port}`);
+});
 
 const io = socketio(server);
 io.on('connection', (socket) => {
-  console.log('New user connected');
+  debug('New user connected');
 });

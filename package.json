@@ -6,9 +6,10 @@
   "author": "Chris Birk <cmbirk@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/app"
+    "start": "DEBUG=simple-chat:* nodemon src/app"
   },
   "dependencies": {
+    "debug": "^4.1.1",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "nodemon": "^1.19.1",
